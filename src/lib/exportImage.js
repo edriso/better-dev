@@ -3,8 +3,13 @@ import { toPng } from 'html-to-image';
 // Turn a card DOM node into a downloadable PNG. We render at 2x for a crisp
 // image and read the current background color so the exported card matches the
 // active theme.
+//
+// Rejects if there is no node to render or if the conversion fails, so callers
+// can show feedback instead of failing silently.
 export async function downloadCardImage(node, fileName = 'better-dev-advice') {
-  if (!node) return;
+  if (!node) {
+    throw new Error('Nothing to export');
+  }
 
   const background = getComputedStyle(document.body).backgroundColor;
 
@@ -12,7 +17,7 @@ export async function downloadCardImage(node, fileName = 'better-dev-advice') {
     pixelRatio: 2,
     cacheBust: true,
     backgroundColor: background,
-    // Add a little breathing room around the card in the exported image.
+    // Keep the card's own padding in the exported image.
     style: {
       margin: '0',
       padding: getComputedStyle(node).padding,

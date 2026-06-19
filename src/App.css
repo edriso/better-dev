@@ -130,6 +130,9 @@
   gap: 2px;
   border-top: 1px solid var(--border);
   padding-top: 16px;
+  /* Reserve room at the bottom right for the brand watermark so a long
+     source line never runs underneath it. */
+  padding-right: 84px;
 }
 
 .advice-card__author {
@@ -140,6 +143,7 @@
 }
 
 .advice-card__source {
+  font-style: normal;
   font-size: 0.82rem;
   color: var(--text-faint);
 }
@@ -161,6 +165,8 @@
 
 .advice-card--compact .advice-card__text {
   font-size: 1.18rem;
+  /* Leave room for the download and remove buttons in the top right corner. */
+  padding-right: 80px;
 }
 
 .advice-card--compact .advice-card__mark {
@@ -171,6 +177,7 @@
 .daily__actions {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -202,7 +209,14 @@
   border-color: var(--accent);
   color: #fff;
   flex: 1;
+  min-width: 11rem;
   justify-content: center;
+}
+
+.button:disabled,
+.icon-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 [data-theme='dark'] .button--primary {

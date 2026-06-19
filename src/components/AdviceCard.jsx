@@ -1,8 +1,6 @@
-import { forwardRef } from 'react';
-
-// The visual card for a single piece of advice. It is wrapped in forwardRef so
-// the parent can hand its DOM node to the image exporter.
-const AdviceCard = forwardRef(function AdviceCard({ item, compact = false }, ref) {
+// The visual card for a single piece of advice. In React 19 a ref is just a
+// regular prop, so the parent can hand it the DOM node for the image exporter.
+export default function AdviceCard({ item, compact = false, ref }) {
   if (!item) return null;
 
   return (
@@ -17,9 +15,9 @@ const AdviceCard = forwardRef(function AdviceCard({ item, compact = false }, ref
         {item.text}
       </blockquote>
       <footer className="advice-card__meta">
-        <cite className="advice-card__author">{item.author}</cite>
+        <span className="advice-card__author">{item.author}</span>
         {item.source ? (
-          <span className="advice-card__source">{item.source}</span>
+          <cite className="advice-card__source">{item.source}</cite>
         ) : null}
       </footer>
       <span className="advice-card__brand" aria-hidden="true">
@@ -27,6 +25,4 @@ const AdviceCard = forwardRef(function AdviceCard({ item, compact = false }, ref
       </span>
     </article>
   );
-});
-
-export default AdviceCard;
+}

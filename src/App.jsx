@@ -10,13 +10,15 @@ import {
 } from './components/icons.jsx';
 import useTheme from './hooks/useTheme.js';
 import useSavedAdvice from './hooks/useSavedAdvice.js';
+import useImageDownload from './hooks/useImageDownload.js';
 import { pickRandomAdvice } from './lib/pickAdvice.js';
-import { downloadCardImage } from './lib/exportImage.js';
+import { adviceFileName } from './lib/filename.js';
 import './App.css';
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
   const { saved, isSaved, toggleSaved, removeSaved } = useSavedAdvice();
+  const { download, pending } = useImageDownload();
 
   // Pick the first piece of advice once, when the app loads. A page refresh
   // runs this again and lands on a fresh one.
@@ -31,9 +33,9 @@ export default function App() {
 
   const handleDownload = useCallback(() => {
     if (current) {
-      downloadCardImage(cardRef.current, `advice-${current.id}`);
+      download(cardRef.current, adviceFileName(current));
     }
-  }, [current]);
+  }, [current, download]);
 
   const currentIsSaved = current ? isSaved(current.id) : false;
 
@@ -77,7 +79,10 @@ export default function App() {
       <main className="app__main">
         {tab === 'daily' ? (
           <section className="daily">
-            <AdviceCard ref={cardRef} item={current} />
+            {/* Announce new advice to assistive tech as the card swaps. */}
+            <div aria-live="polite" aria-atomic="true">
+              <AdviceCard ref={cardRef} item={current} />
+            </div>
 
             <div className="daily__actions">
               <button
@@ -95,7 +100,7 @@ export default function App() {
                 onClick={() => current && toggleSaved(current)}
                 aria-pressed={currentIsSaved}
                 aria-label={currentIsSaved ? 'Remove from saved' : 'Save this advice'}
-                title={currentIsSaved ? 'Saved' : 'Save'}
+                title={currentIsSaved ? 'Remove from saved' : 'Save'}
               >
                 <HeartIcon filled={currentIsSaved} />
               </button>
@@ -104,6 +109,7 @@ export default function App() {
                 type="button"
                 className="icon-button"
                 onClick={handleDownload}
+                disabled={!current || pending}
                 aria-label="Download this advice as an image"
                 title="Download as image"
               >

@@ -22,6 +22,9 @@ idea, it is written in plain language and still credited to the source.
 - **Sandi Metz** — "The Wrong Abstraction" and *Practical Object-Oriented Design*
 - **Brian Kernighan** — *The Elements of Programming Style*, *Software Tools*
 - **Donald Knuth** — "Structured Programming with go to Statements"
+- **Harold Abelson and Gerald Jay Sussman** — *Structure and Interpretation of
+  Computer Programs*
+- **Bryan Cantrill** — talks on engineering careers
 - **Edsger Dijkstra** — EWD writings on simplicity and reliability
 - **Tony Hoare** — 1980 Turing Award Lecture, "The Emperor's Old Clothes"
 - **Grace Hopper** — interviews and talks

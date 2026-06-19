@@ -2,16 +2,18 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import App from '../App.jsx';
+import { downloadCardImage } from '../lib/exportImage.js';
 
 // The image exporter touches canvas APIs that jsdom does not implement, so we
 // stub it for these UI tests.
 vi.mock('../lib/exportImage.js', () => ({
-  downloadCardImage: vi.fn(),
+  downloadCardImage: vi.fn().mockResolvedValue(undefined),
 }));
 
 describe('App', () => {
   beforeEach(() => {
     document.documentElement.removeAttribute('data-theme');
+    vi.clearAllMocks();
   });
 
   it('shows a piece of advice with an author on load', () => {
@@ -59,6 +61,24 @@ describe('App', () => {
     const initial = document.documentElement.getAttribute('data-theme');
     await user.click(toggle);
     expect(document.documentElement.getAttribute('data-theme')).not.toBe(initial);
+  });
+
+  it('announces advice in a polite live region', () => {
+    const { container } = render(<App />);
+    const live = container.querySelector('[aria-live="polite"]');
+    expect(live).not.toBeNull();
+    expect(within(live).getByTestId('advice-text')).toBeInTheDocument();
+  });
+
+  it('exports a PNG with a human readable filename', async () => {
+    const user = userEvent.setup();
+    render(<App />);
+    await user.click(
+      screen.getByRole('button', { name: /download this advice as an image/i }),
+    );
+    expect(downloadCardImage).toHaveBeenCalledTimes(1);
+    const fileName = downloadCardImage.mock.calls[0][1];
+    expect(fileName).toMatch(/^better-dev-advice/);
   });
 
   it('shows an empty state when nothing is saved', async () => {

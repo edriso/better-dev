@@ -10,6 +10,15 @@ written in plain English, and gathered from books, talks and writing by
 engineers worth listening to. See [CREDITS.md](./CREDITS.md) for the full list of
 sources.
 
+## A look
+
+| Light | Dark |
+| --- | --- |
+| ![better dev in light theme](./docs/light.png) | ![better dev in dark theme](./docs/dark.png) |
+
+The Saved tab keeps the advice you liked, and any card can be downloaded as a
+clean PNG that matches the current theme.
+
 ## Features
 
 - **One advice per visit.** A random, sourced piece of advice on every load.
@@ -45,6 +54,7 @@ Then open the URL Vite prints (usually `http://localhost:5173`).
 | `npm test` | Run the test suite once |
 | `npm run test:watch` | Run tests in watch mode |
 | `npm run lint` | Lint the project |
+| `npm run screenshots` | Capture light, dark and mobile screenshots into `docs/` (needs the dev server running and Playwright installed) |
 
 ## Tech
 

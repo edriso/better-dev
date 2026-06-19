@@ -1,10 +1,12 @@
 import { useRef } from 'react';
 import AdviceCard from './AdviceCard.jsx';
-import { downloadCardImage } from '../lib/exportImage.js';
+import useImageDownload from '../hooks/useImageDownload.js';
+import { adviceFileName } from '../lib/filename.js';
 import { DownloadIcon, TrashIcon } from './icons.jsx';
 
 function SavedItem({ item, onRemove }) {
   const cardRef = useRef(null);
+  const { download, pending } = useImageDownload();
 
   return (
     <li className="saved-item">
@@ -13,7 +15,8 @@ function SavedItem({ item, onRemove }) {
         <button
           type="button"
           className="icon-button"
-          onClick={() => downloadCardImage(cardRef.current, `advice-${item.id}`)}
+          onClick={() => download(cardRef.current, adviceFileName(item))}
+          disabled={pending}
           aria-label="Download this advice as an image"
           title="Download as image"
         >

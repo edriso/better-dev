@@ -62,9 +62,9 @@ const advice = [
   },
   {
     id: 'addy-first-right-better',
-    text: 'First make it work, then make it right, then make it better. You do not have to get everything perfect on the first pass.',
+    text: 'First do it, then do it right, then do it better. You do not have to get everything perfect on the first pass.',
     author: 'Addy Osmani',
-    source: 'Talks and writing on web performance and craft',
+    source: 'First do it, then do it right, then do it better (2013)',
     tags: ['shipping', 'iteration'],
   },
 
@@ -214,7 +214,7 @@ const advice = [
     id: 'hickey-tradeoffs',
     text: 'Programmers know the benefits of everything and the tradeoffs of nothing. Slow down and name what a choice will cost you, not only what it gives you.',
     author: 'Rich Hickey',
-    source: 'Simple Made Easy talk',
+    source: 'Paraphrased from his talks on simplicity',
     tags: ['decision-making', 'design'],
   },
 
@@ -244,7 +244,7 @@ const advice = [
   },
   {
     id: 'kernighan-complexity',
-    text: 'Controlling complexity is the essence of programming. Most of your real work is keeping things simple enough to reason about.',
+    text: 'Controlling complexity is the essence of computer programming. Most of your real work is keeping things simple enough to reason about.',
     author: 'Brian Kernighan',
     source: 'Software Tools',
     tags: ['complexity', 'craft'],
@@ -266,17 +266,17 @@ const advice = [
     tags: ['performance', 'pragmatism'],
   },
   {
-    id: 'knuth-read',
-    text: 'Programs are meant to be read by humans and only incidentally for computers to run. Write for the next reader first.',
-    author: 'Donald Knuth',
-    source: 'Literate programming writing',
+    id: 'sicp-read',
+    text: 'Programs must be written for people to read, and only incidentally for machines to run. Write for the next reader first.',
+    author: 'Harold Abelson and Gerald Jay Sussman',
+    source: 'Structure and Interpretation of Computer Programs',
     tags: ['readability', 'clarity'],
   },
 
   // --- Edsger Dijkstra ---
   {
     id: 'dijkstra-simplicity',
-    text: 'Simplicity is a prerequisite for reliability. You cannot trust a system you cannot understand.',
+    text: 'Simplicity is prerequisite for reliability. You cannot trust a system you cannot understand.',
     author: 'Edsger Dijkstra',
     source: 'EWD writings',
     tags: ['simplicity', 'reliability'],
@@ -284,7 +284,7 @@ const advice = [
   // --- Grace Hopper ---
   {
     id: 'hopper-always-done',
-    text: 'The most damaging phrase in the language is we have always done it this way. Keep questioning the defaults.',
+    text: 'The most dangerous phrase in the language is, we have always done it this way. Keep questioning the defaults.',
     author: 'Grace Hopper',
     source: 'Interviews and talks',
     tags: ['mindset', 'change'],
@@ -420,10 +420,10 @@ const advice = [
     tags: ['seniority', 'leadership'],
   },
   {
-    id: 'larson-terms',
+    id: 'cantrill-terms',
     text: 'Aim to work on things that matter, with people you respect, on terms you are proud of. You rarely get all three at once, so be intentional.',
-    author: 'Will Larson',
-    source: 'An Elegant Puzzle',
+    author: 'Bryan Cantrill',
+    source: 'Often quoted from his talks on engineering careers',
     tags: ['career', 'values'],
   },
 
@@ -490,13 +490,6 @@ const advice = [
   },
 
   // --- Dan Abramov ---
-  {
-    id: 'abramov-didnt-write',
-    text: 'Sometimes the best code is the code you did not write. Question whether a feature or abstraction needs to exist at all.',
-    author: 'Dan Abramov',
-    source: 'Talks and writing on React',
-    tags: ['simplicity', 'design'],
-  },
   {
     id: 'abramov-delete',
     text: 'Do not be afraid to delete code. Code is a liability you maintain, not a trophy you collect.',
@@ -622,7 +615,7 @@ const advice = [
     id: 'community-postel',
     text: 'Be conservative in what you send and liberal in what you accept. Robust systems are strict about their own output and forgiving of others.',
     author: 'Jon Postel',
-    source: 'Robustness principle, RFC 761',
+    source: 'The robustness principle, RFC 1122',
     tags: ['reliability', 'design'],
   },
   {
@@ -670,8 +663,8 @@ const advice = [
   {
     id: 'community-automate-toil',
     text: 'If you do a manual task three times, it is time to script it. The hours you spend automating come back many times over.',
-    author: 'Site Reliability Engineering practice',
-    source: 'Google SRE book',
+    author: 'Engineering practice',
+    source: 'The rule of three, applied to automation',
     tags: ['automation', 'productivity'],
   },
   {
