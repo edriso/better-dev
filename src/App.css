@@ -98,7 +98,7 @@
    below from jumping under the cursor when you tap "New advice". The
    attribution is pinned to the bottom, with the quote sitting at the top. */
 .daily .advice-card {
-  min-height: 24rem;
+  min-height: 25rem;
 }
 
 @keyframes card-in {
@@ -363,7 +363,7 @@
   /* Narrower width plus a smaller font means advice wraps to more lines, so
      the daily card needs a taller stable footprint on phones. */
   .daily .advice-card {
-    min-height: 26rem;
+    min-height: 28rem;
   }
 
   .advice-card__text {

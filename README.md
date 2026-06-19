@@ -32,7 +32,7 @@ clean PNG that matches the current theme.
   remember your choice after that.
 - **Responsive and accessible.** Works from phone to desktop, keyboard friendly,
   with sensible labels and reduced motion support.
-- **Over 110 pieces of advice**, enough to read one a day for months without a
+- **Over 160 pieces of advice**, enough to read one a day for months without a
   repeat.
 
 ## Getting started
