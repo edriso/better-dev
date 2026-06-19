@@ -11,10 +11,11 @@ idea, it is written in plain language and still credited to the source.
 
 ## People and works referenced
 
-- **Addy Osmani** — "21 Lessons from 14 Years at Google" (2025) and
-  "14 More Lessons from 14 Years at Google" (2026) on his Elevate newsletter,
+- **Addy Osmani** — his farewell post after 14 years at Google (2026), which is
+  what sparked this app, along with "21 Lessons from 14 Years at Google" (2025)
+  and "14 More Lessons from 14 Years at Google" (2026) on his Elevate newsletter,
   "First do it, then do it right, then do it better" (2013), and
-  "Don't Outsource the Learning". The app was inspired by these lessons.
+  "Don't Outsource the Learning".
 - **John Ousterhout** — *A Philosophy of Software Design*
 - **Andy Hunt and Dave Thomas** — *The Pragmatic Programmer*
 - **Kent Beck** — writing on refactoring, habits, and test driven development
