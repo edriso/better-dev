@@ -6,8 +6,9 @@
 // written in plain language and still credited to the source.
 //
 // Sources include public talks, books, blog posts and widely shared writing
-// from the engineering community. Credits are listed in the UI and in
-// CREDITS.md.
+// from the engineering community. The author and source on each entry are the
+// single source of truth for credit, and they are shown on every card in the
+// app.
 
 const advice = [
   // --- Addy Osmani (the post that inspired this app, plus his books) ---

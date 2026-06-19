@@ -7,8 +7,8 @@ keep or share. Light and dark themes included.
 
 The advice is not generated. Every line is attributed to a real person or book,
 written in plain English, and gathered from books, talks and writing by
-engineers worth listening to. See [CREDITS.md](./CREDITS.md) for the full list of
-sources.
+engineers worth listening to. Each card shows its own author and source, so the
+credit lives right next to the advice.
 
 ## A look
 
@@ -89,9 +89,9 @@ npm test
 
 ## Credits
 
-The idea was sparked by Addy Osmani's reflections after 14 years at Google. The
-advice itself comes from many engineers and books, each credited on its card and
-listed in [CREDITS.md](./CREDITS.md).
+The idea was sparked by Addy Osmani's farewell post after 14 years at Google.
+The advice itself comes from many engineers and books, and each piece is
+credited to its author and source right on the card it appears on.
 
 ## License
 
