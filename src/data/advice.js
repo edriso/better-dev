@@ -1,0 +1,1024 @@
+// A curated set of real, sourced advice for becoming a better developer.
+//
+// Every entry is attributed to a real person or book. The wording is kept
+// plain and human. Where a line is a well known direct quote it is quoted as
+// faithfully as possible; where it is a paraphrase of a known idea it is
+// written in plain language and still credited to the source.
+//
+// Sources include public talks, books, blog posts and widely shared writing
+// from the engineering community. Credits are listed in the UI and in
+// CREDITS.md.
+
+const advice = [
+  // --- Addy Osmani (the post that inspired this app, plus his books) ---
+  {
+    id: 'addy-user-problem',
+    text: 'Work backwards from the user problem, not the technology. The engineer who truly understands the problem usually finds the elegant solution is simpler than anyone expected.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['problem-solving', 'design'],
+  },
+  {
+    id: 'addy-bias-action',
+    text: 'Bias toward action. You can edit a bad page, but you cannot edit a blank one.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['mindset', 'shipping'],
+  },
+  {
+    id: 'addy-clarity-seniority',
+    text: 'Clarity is seniority and cleverness is overhead. The more senior you get, the more your job is to make things obvious.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['seniority', 'clarity'],
+  },
+  {
+    id: 'addy-admit-unknown',
+    text: 'Admitting what you do not know creates more safety than pretending you do.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['mindset', 'teamwork'],
+  },
+  {
+    id: 'addy-code-advocate',
+    text: 'Your code does not advocate for you. People do. Relationships and trust outlast any pull request.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['career', 'teamwork'],
+  },
+  {
+    id: 'addy-compounding',
+    text: 'There are no shortcuts, only compounding. Small steady investments in your skills and relationships add up far more than any single sprint.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['career', 'growth'],
+  },
+  {
+    id: 'addy-ours',
+    text: 'The best things you work on are never just yours. They are ours. Share the credit and the work gets better.',
+    author: 'Addy Osmani',
+    source: 'Farewell post after 14 years at Google, 2026',
+    tags: ['teamwork', 'humility'],
+  },
+  {
+    id: 'addy-first-right-better',
+    text: 'First make it work, then make it right, then make it better. You do not have to get everything perfect on the first pass.',
+    author: 'Addy Osmani',
+    source: 'Talks and writing on web performance and craft',
+    tags: ['shipping', 'iteration'],
+  },
+
+  // --- John Ousterhout, A Philosophy of Software Design ---
+  {
+    id: 'ousterhout-understanding',
+    text: 'The greatest limitation in writing software is our own ability to understand the systems we are creating. Design to reduce how much someone has to hold in their head.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['complexity', 'design'],
+  },
+  {
+    id: 'ousterhout-deep-modules',
+    text: 'Prefer deep modules: a simple interface that hides a lot of work. A small interface over a large body of functionality is what keeps a system manageable.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['design', 'abstraction'],
+  },
+  {
+    id: 'ousterhout-design-twice',
+    text: 'Design it twice. Your first idea for an interface or design is rarely your best, so sketch a second option before you commit.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['design', 'craft'],
+  },
+  {
+    id: 'ousterhout-comments-nonobvious',
+    text: 'Comments should describe the things that are not obvious from the code. If the comment just repeats the code, it is not earning its place.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['comments', 'clarity'],
+  },
+  {
+    id: 'ousterhout-strategic',
+    text: 'Working code is not enough. A little investment in design on every change beats rushing, because tactical shortcuts compound into a mess.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['design', 'technical-debt'],
+  },
+  {
+    id: 'ousterhout-pull-complexity-down',
+    text: 'Pull complexity downward. It is better for the author of a module to suffer a little so that every user of it suffers less.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['design', 'complexity'],
+  },
+
+  // --- The Pragmatic Programmer, Hunt and Thomas ---
+  {
+    id: 'pragprog-broken-windows',
+    text: 'Do not live with broken windows. Fix small bad designs and sloppy code as you find them, before the rot spreads to the rest of the project.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['quality', 'technical-debt'],
+  },
+  {
+    id: 'pragprog-dry',
+    text: 'Do not repeat yourself. Every piece of knowledge should have a single, clear home, so a change only has to happen in one place.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['design', 'maintainability'],
+  },
+  {
+    id: 'pragprog-care',
+    text: 'Care about your craft. There is little point building software unless you care about doing it well.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['mindset', 'craft'],
+  },
+  {
+    id: 'pragprog-knowledge-portfolio',
+    text: 'Invest regularly in your knowledge portfolio. Learn something new on a steady schedule, even when no project demands it yet.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['growth', 'learning'],
+  },
+  {
+    id: 'pragprog-options',
+    text: 'Provide options, do not make lame excuses. When something cannot be done, come with a path forward rather than a reason it failed.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['communication', 'ownership'],
+  },
+  {
+    id: 'pragprog-defensive',
+    text: 'You cannot write perfect software, so design defensively. Assume inputs will be wrong and other code will misbehave, and fail in a way you can see.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['reliability', 'design'],
+  },
+
+  // --- Kent Beck ---
+  {
+    id: 'beck-make-change-easy',
+    text: 'For each desired change, make the change easy first, then make the easy change. The warning is that making it easy is sometimes the hard part.',
+    author: 'Kent Beck',
+    source: 'Public writing on refactoring and design',
+    tags: ['refactoring', 'design'],
+  },
+  {
+    id: 'beck-habits',
+    text: 'I am not a great programmer. I am a good programmer with great habits. Process beats raw talent over a career.',
+    author: 'Kent Beck',
+    source: 'Widely attributed quote on craft',
+    tags: ['habits', 'growth'],
+  },
+  {
+    id: 'proverb-work-right-fast',
+    text: 'Make it work, make it right, make it fast, in that order. Do not optimize something that is not yet correct.',
+    author: 'Programming proverb',
+    source: 'Often credited to Kent Beck, though the saying is older',
+    tags: ['iteration', 'performance'],
+  },
+
+  // --- Martin Fowler ---
+  {
+    id: 'fowler-humans',
+    text: 'Any fool can write code that a computer understands. Good programmers write code that humans understand.',
+    author: 'Martin Fowler',
+    source: 'Refactoring',
+    tags: ['clarity', 'readability'],
+  },
+  {
+    id: 'fowler-small-steps',
+    text: 'Refactor in small steps so the system keeps working the whole time. If you cannot get back to green quickly, your step was too big.',
+    author: 'Martin Fowler',
+    source: 'Refactoring',
+    tags: ['refactoring', 'safety'],
+  },
+  {
+    id: 'fowler-if-it-hurts',
+    text: 'If it hurts, do it more often. Painful tasks like integrating, releasing or testing get easier the more you practice and automate them.',
+    author: 'Martin Fowler',
+    source: 'Writing on continuous integration',
+    tags: ['process', 'automation'],
+  },
+
+  // --- Rich Hickey, Simple Made Easy ---
+  {
+    id: 'hickey-simple-easy',
+    text: 'Simple is not the same as easy. Simple means not entangled with other things. Easy just means familiar or close at hand. Aim for simple even when it is not easy.',
+    author: 'Rich Hickey',
+    source: 'Simple Made Easy talk',
+    tags: ['simplicity', 'design'],
+  },
+  {
+    id: 'hickey-tradeoffs',
+    text: 'Programmers know the benefits of everything and the tradeoffs of nothing. Slow down and name what a choice will cost you, not only what it gives you.',
+    author: 'Rich Hickey',
+    source: 'Simple Made Easy talk',
+    tags: ['decision-making', 'design'],
+  },
+
+  // --- Sandi Metz ---
+  {
+    id: 'metz-duplication',
+    text: 'Duplication is far cheaper than the wrong abstraction. When a shared abstraction starts fighting you, it is fine to inline it and go back to duplication.',
+    author: 'Sandi Metz',
+    source: 'The Wrong Abstraction, sandimetz.com',
+    tags: ['abstraction', 'design'],
+  },
+  {
+    id: 'metz-smallest-thing',
+    text: 'Make the smallest decision you can and leave the next decision for later. You will know more when you get there.',
+    author: 'Sandi Metz',
+    source: 'Talks on object oriented design',
+    tags: ['design', 'iteration'],
+  },
+
+  // --- Brian Kernighan ---
+  {
+    id: 'kernighan-debugging',
+    text: 'Debugging is twice as hard as writing the code. So if you write code as cleverly as you can, you are by definition not smart enough to debug it. Write it plainly.',
+    author: 'Brian Kernighan',
+    source: 'The Elements of Programming Style',
+    tags: ['debugging', 'clarity'],
+  },
+  {
+    id: 'kernighan-complexity',
+    text: 'Controlling complexity is the essence of programming. Most of your real work is keeping things simple enough to reason about.',
+    author: 'Brian Kernighan',
+    source: 'Software Tools',
+    tags: ['complexity', 'craft'],
+  },
+  {
+    id: 'kernighan-rewrite',
+    text: 'Do not comment bad code. Rewrite it. A comment cannot rescue code that is confusing in the first place.',
+    author: 'Brian Kernighan',
+    source: 'The Elements of Programming Style',
+    tags: ['comments', 'quality'],
+  },
+
+  // --- Donald Knuth ---
+  {
+    id: 'knuth-premature',
+    text: 'Premature optimization is the root of all evil. Measure first, then optimize the small part that actually matters.',
+    author: 'Donald Knuth',
+    source: 'Structured Programming with go to Statements',
+    tags: ['performance', 'pragmatism'],
+  },
+  {
+    id: 'knuth-read',
+    text: 'Programs are meant to be read by humans and only incidentally for computers to run. Write for the next reader first.',
+    author: 'Donald Knuth',
+    source: 'Literate programming writing',
+    tags: ['readability', 'clarity'],
+  },
+
+  // --- Edsger Dijkstra ---
+  {
+    id: 'dijkstra-simplicity',
+    text: 'Simplicity is a prerequisite for reliability. You cannot trust a system you cannot understand.',
+    author: 'Edsger Dijkstra',
+    source: 'EWD writings',
+    tags: ['simplicity', 'reliability'],
+  },
+  // --- Grace Hopper ---
+  {
+    id: 'hopper-always-done',
+    text: 'The most damaging phrase in the language is we have always done it this way. Keep questioning the defaults.',
+    author: 'Grace Hopper',
+    source: 'Interviews and talks',
+    tags: ['mindset', 'change'],
+  },
+  {
+    id: 'hopper-forgiveness',
+    text: 'It is often easier to ask forgiveness than permission. If you are confident and the blast radius is small, try it and learn.',
+    author: 'Grace Hopper',
+    source: 'Attributed quote',
+    tags: ['initiative', 'mindset'],
+  },
+
+  // --- Linus Torvalds ---
+  {
+    id: 'torvalds-talk-cheap',
+    text: 'Talk is cheap. Show me the code. A working prototype settles an argument faster than a long thread.',
+    author: 'Linus Torvalds',
+    source: 'Linux kernel mailing list',
+    tags: ['action', 'communication'],
+  },
+  {
+    id: 'torvalds-data-structures',
+    text: 'Bad programmers worry about the code. Good programmers worry about data structures and their relationships. Get the data model right and the code follows.',
+    author: 'Linus Torvalds',
+    source: 'Git mailing list',
+    tags: ['design', 'data'],
+  },
+
+  // --- Phil Karlton ---
+  {
+    id: 'karlton-two-hard',
+    text: 'There are only two hard things in computer science: cache invalidation and naming things. Both are worth slowing down for.',
+    author: 'Phil Karlton',
+    source: 'Widely shared remark at Netscape',
+    tags: ['naming', 'caching'],
+  },
+
+  // --- Steve McConnell, Code Complete ---
+  {
+    id: 'mcconnell-self-documenting',
+    text: 'Good code is its own best documentation. Before adding a comment, ask whether you can change the code so the comment is not needed.',
+    author: 'Steve McConnell',
+    source: 'Code Complete',
+    tags: ['comments', 'readability'],
+  },
+  {
+    id: 'mcconnell-manage-complexity',
+    text: 'The primary goal of software design is managing complexity. Every technique you reach for should earn its keep by making the system easier to think about.',
+    author: 'Steve McConnell',
+    source: 'Code Complete',
+    tags: ['complexity', 'design'],
+  },
+
+  // --- Michael Feathers, Working Effectively with Legacy Code ---
+  {
+    id: 'feathers-legacy',
+    text: 'Legacy code is simply code without tests. The fastest way to feel safe changing old code is to add a test that pins down what it does today.',
+    author: 'Michael Feathers',
+    source: 'Working Effectively with Legacy Code',
+    tags: ['legacy', 'testing'],
+  },
+  {
+    id: 'feathers-characterization',
+    text: 'When you do not understand legacy code, write a characterization test. Capture the current behavior first, then change with confidence.',
+    author: 'Michael Feathers',
+    source: 'Working Effectively with Legacy Code',
+    tags: ['legacy', 'testing'],
+  },
+
+  // --- Fred Brooks, The Mythical Man-Month ---
+  {
+    id: 'brooks-manpower',
+    text: 'Adding people to a late project makes it later. New people need ramp up and coordination, which slows the team before it speeds up.',
+    author: 'Fred Brooks',
+    source: 'The Mythical Man-Month',
+    tags: ['teams', 'planning'],
+  },
+  {
+    id: 'brooks-throw-away',
+    text: 'Plan to throw one away, because you will anyway. Your first version is how you learn what the real version should be.',
+    author: 'Fred Brooks',
+    source: 'The Mythical Man-Month',
+    tags: ['iteration', 'design'],
+  },
+
+  // --- Jeff Atwood, Coding Horror ---
+  {
+    id: 'atwood-no-code',
+    text: 'The best code is no code at all. Every line you write is a line someone has to read, debug and maintain later.',
+    author: 'Jeff Atwood',
+    source: 'Coding Horror blog',
+    tags: ['simplicity', 'maintainability'],
+  },
+  {
+    id: 'atwood-how-why',
+    text: 'Code tells you how, comments tell you why. Spend your comments on intent and tradeoffs, not on restating the obvious.',
+    author: 'Jeff Atwood',
+    source: 'Coding Horror blog',
+    tags: ['comments', 'clarity'],
+  },
+
+  // --- Ward Cunningham, technical debt ---
+  {
+    id: 'cunningham-debt',
+    text: 'Shipping quick code is like taking on debt. A little is fine if you pay it back soon. Leave it too long and the interest buries you.',
+    author: 'Ward Cunningham',
+    source: 'The WyCash Portfolio Management System',
+    tags: ['technical-debt', 'planning'],
+  },
+
+  // --- Joel Spolsky ---
+  {
+    id: 'joel-read-harder',
+    text: 'It is harder to read code than to write it. That is why old code looks messy to you and why rewriting from scratch is usually a trap.',
+    author: 'Joel Spolsky',
+    source: 'Things You Should Never Do, Joel on Software',
+    tags: ['legacy', 'humility'],
+  },
+  {
+    id: 'joel-rewrite-trap',
+    text: 'The single worst strategic mistake a team can make is to rewrite a working system from scratch. The old code carries years of hard won bug fixes you cannot see.',
+    author: 'Joel Spolsky',
+    source: 'Things You Should Never Do, Joel on Software',
+    tags: ['legacy', 'decision-making'],
+  },
+
+  // --- Will Larson ---
+  {
+    id: 'larson-multiply',
+    text: 'As a senior engineer your job is to make the people around you more effective, not to be the smartest person in the room.',
+    author: 'Will Larson',
+    source: 'Staff Engineer',
+    tags: ['seniority', 'leadership'],
+  },
+  {
+    id: 'larson-terms',
+    text: 'Aim to work on things that matter, with people you respect, on terms you are proud of. You rarely get all three at once, so be intentional.',
+    author: 'Will Larson',
+    source: 'An Elegant Puzzle',
+    tags: ['career', 'values'],
+  },
+
+  // --- Camille Fournier, The Manager's Path ---
+  {
+    id: 'fournier-learn-from',
+    text: 'The fastest way to grow is to find people who are good at the things you are not, and learn from them on purpose.',
+    author: 'Camille Fournier',
+    source: 'The Manager’s Path',
+    tags: ['growth', 'mentorship'],
+  },
+  {
+    id: 'fournier-ask',
+    text: 'Ask for what you want. The worst case is someone says no, and you are no worse off than staying quiet.',
+    author: 'Camille Fournier',
+    source: 'The Manager’s Path',
+    tags: ['career', 'communication'],
+  },
+
+  // --- Charity Majors ---
+  {
+    id: 'majors-production',
+    text: 'You cannot fully replicate production anywhere else, so get good at observing it safely. Watching real traffic teaches you what staging never will.',
+    author: 'Charity Majors',
+    source: 'Writing and talks on observability',
+    tags: ['operations', 'observability'],
+  },
+  {
+    id: 'majors-never-done',
+    text: 'Software is never done, it is only deployed. Plan for the long life of a system, not just the launch.',
+    author: 'Charity Majors',
+    source: 'Writing on operating software',
+    tags: ['operations', 'mindset'],
+  },
+  {
+    id: 'majors-deploy-small',
+    text: 'Deploy small and deploy often. Small changes are easy to reason about and easy to roll back when something goes wrong.',
+    author: 'Charity Majors',
+    source: 'Writing on deploys and reliability',
+    tags: ['operations', 'shipping'],
+  },
+
+  // --- Julia Evans ---
+  {
+    id: 'evans-one-thing',
+    text: 'When you debug, change one thing at a time. It is the only honest way to know what actually fixed the problem.',
+    author: 'Julia Evans',
+    source: 'wizardzines.com and blog',
+    tags: ['debugging', 'method'],
+  },
+  {
+    id: 'evans-dumb-questions',
+    text: 'Asking so called dumb questions is a superpower. The question you are afraid to ask is usually the one half the room also has.',
+    author: 'Julia Evans',
+    source: 'Blog on learning in public',
+    tags: ['learning', 'communication'],
+  },
+  {
+    id: 'evans-read-error',
+    text: 'Read the error message slowly and all the way through. A surprising number of bugs are explained right there in plain text.',
+    author: 'Julia Evans',
+    source: 'Debugging writing and zines',
+    tags: ['debugging', 'method'],
+  },
+
+  // --- Dan Abramov ---
+  {
+    id: 'abramov-didnt-write',
+    text: 'Sometimes the best code is the code you did not write. Question whether a feature or abstraction needs to exist at all.',
+    author: 'Dan Abramov',
+    source: 'Talks and writing on React',
+    tags: ['simplicity', 'design'],
+  },
+  {
+    id: 'abramov-delete',
+    text: 'Do not be afraid to delete code. Code is a liability you maintain, not a trophy you collect.',
+    author: 'Dan Abramov',
+    source: 'Talks and writing on React',
+    tags: ['simplicity', 'maintainability'],
+  },
+
+  // --- Kelsey Hightower ---
+  {
+    id: 'hightower-ambiguity',
+    text: 'Be the person who turns ambiguity into clarity for the team. Naming the unclear thing out loud is real, valued work.',
+    author: 'Kelsey Hightower',
+    source: 'Talks and interviews',
+    tags: ['leadership', 'communication'],
+  },
+  {
+    id: 'hightower-fewer-parts',
+    text: 'The most reliable systems have the fewest moving parts. Every component you add is something else that can break at 3am.',
+    author: 'Kelsey Hightower',
+    source: 'Talks on operations and simplicity',
+    tags: ['simplicity', 'reliability'],
+  },
+
+  // --- Gergely Orosz, The Pragmatic Engineer ---
+  {
+    id: 'orosz-write-down',
+    text: 'Write your work down. Documenting decisions and context is how you scale yourself beyond the meeting you were in.',
+    author: 'Gergely Orosz',
+    source: 'The Pragmatic Engineer',
+    tags: ['communication', 'documentation'],
+  },
+  {
+    id: 'orosz-finish',
+    text: 'The most underrated engineering skill is finishing things. Closing out the last ten percent is what turns effort into impact.',
+    author: 'Gergely Orosz',
+    source: 'The Pragmatic Engineer',
+    tags: ['execution', 'career'],
+  },
+
+  // --- Werner Vogels ---
+  {
+    id: 'vogels-everything-fails',
+    text: 'Everything fails all the time. Build systems that expect failure and recover gracefully instead of hoping nothing breaks.',
+    author: 'Werner Vogels',
+    source: 'Amazon and AWS talks',
+    tags: ['reliability', 'design'],
+  },
+
+  // --- Leslie Lamport ---
+  {
+    id: 'lamport-writing',
+    text: 'If you are thinking without writing, you only think you are thinking. Writing the design down is how you find the holes.',
+    author: 'Leslie Lamport',
+    source: 'Talks on specification and thinking',
+    tags: ['design', 'communication'],
+  },
+
+  // --- Tom Cargill, ninety-ninety rule ---
+  {
+    id: 'cargill-ninety',
+    text: 'The first ninety percent of the code takes ninety percent of the time. The last ten percent takes the other ninety percent. Plan for the long tail.',
+    author: 'Tom Cargill',
+    source: 'The ninety-ninety rule, Bell Labs',
+    tags: ['planning', 'estimation'],
+  },
+
+  // --- Robert C. Martin ---
+  {
+    id: 'martin-go-fast',
+    text: 'The only way to go fast is to go well. Sloppy work feels quick today and slows every change you make tomorrow.',
+    author: 'Robert C. Martin',
+    source: 'Clean Code and talks',
+    tags: ['quality', 'speed'],
+  },
+  {
+    id: 'martin-name-care',
+    text: 'Name things with care. A good name saves the next reader from digging through the implementation to understand intent.',
+    author: 'Robert C. Martin',
+    source: 'Clean Code',
+    tags: ['naming', 'readability'],
+  },
+
+  // --- Antoine de Saint-Exupery, often quoted in design ---
+  {
+    id: 'saint-exupery-perfection',
+    text: 'Perfection is reached not when there is nothing left to add, but when there is nothing left to take away. Subtract until only what matters remains.',
+    author: 'Antoine de Saint-Exupery',
+    source: 'Often quoted in software design',
+    tags: ['simplicity', 'design'],
+  },
+
+  // --- Practical, widely shared engineering wisdom ---
+  {
+    id: 'community-rubber-duck',
+    text: 'Explain the bug out loud to a rubber duck or a patient colleague. Saying it step by step often reveals the wrong assumption on its own.',
+    author: 'The Pragmatic Programmer',
+    source: 'Rubber duck debugging',
+    tags: ['debugging', 'method'],
+  },
+  {
+    id: 'community-yagni',
+    text: 'You probably are not going to need it. Build for the requirement in front of you, not the imagined one that may never arrive.',
+    author: 'Extreme Programming community',
+    source: 'YAGNI principle',
+    tags: ['simplicity', 'pragmatism'],
+  },
+  {
+    id: 'community-boy-scout',
+    text: 'Leave the code a little better than you found it. Tiny improvements on every visit keep a codebase healthy without big rewrites.',
+    author: 'Robert C. Martin',
+    source: 'The Boy Scout Rule, Clean Code',
+    tags: ['quality', 'habits'],
+  },
+  {
+    id: 'community-principle-least-astonishment',
+    text: 'Follow the principle of least surprise. Code and interfaces should behave the way a reasonable person would expect them to.',
+    author: 'Software design folklore',
+    source: 'Principle of least astonishment',
+    tags: ['design', 'clarity'],
+  },
+  {
+    id: 'community-postel',
+    text: 'Be conservative in what you send and liberal in what you accept. Robust systems are strict about their own output and forgiving of others.',
+    author: 'Jon Postel',
+    source: 'Robustness principle, RFC 761',
+    tags: ['reliability', 'design'],
+  },
+  {
+    id: 'community-chesterton-fence',
+    text: 'Before you remove something that seems pointless, find out why it was put there. The fence across the road was built for a reason you may not see yet.',
+    author: 'G. K. Chesterton',
+    source: 'Chesterton’s fence, applied to code',
+    tags: ['caution', 'legacy'],
+  },
+  {
+    id: 'community-read-the-code',
+    text: 'When in doubt, read the source. Documentation drifts and rumors spread, but the running code tells you the truth.',
+    author: 'Engineering practice',
+    source: 'Common senior advice',
+    tags: ['debugging', 'method'],
+  },
+  {
+    id: 'community-smallest-repro',
+    text: 'Reduce a bug to the smallest reproduction you can. Once it fits in a few lines, the cause is usually staring back at you.',
+    author: 'Engineering practice',
+    source: 'Common debugging advice',
+    tags: ['debugging', 'method'],
+  },
+  {
+    id: 'community-pair-review',
+    text: 'Review code to understand it, not to find fault. The goal of a review is a healthier codebase and a teammate who learned something.',
+    author: 'Engineering practice',
+    source: 'Healthy code review culture',
+    tags: ['code-review', 'teamwork'],
+  },
+  {
+    id: 'community-small-prs',
+    text: 'Keep pull requests small. A reviewer can give a fifty line change real attention, but a thousand line change just gets a thumbs up.',
+    author: 'Engineering practice',
+    source: 'Common code review advice',
+    tags: ['code-review', 'process'],
+  },
+  {
+    id: 'community-commit-messages',
+    text: 'Write commit messages for the person debugging this in a year, probably you. Explain why the change was made, not just what changed.',
+    author: 'Engineering practice',
+    source: 'Common version control advice',
+    tags: ['documentation', 'habits'],
+  },
+  {
+    id: 'community-automate-toil',
+    text: 'If you do a manual task three times, it is time to script it. The hours you spend automating come back many times over.',
+    author: 'Site Reliability Engineering practice',
+    source: 'Google SRE book',
+    tags: ['automation', 'productivity'],
+  },
+  {
+    id: 'community-measure-first',
+    text: 'Profile before you optimize. Your intuition about what is slow is wrong often enough that guessing wastes real time.',
+    author: 'Engineering practice',
+    source: 'Common performance advice',
+    tags: ['performance', 'method'],
+  },
+  {
+    id: 'community-saying-no',
+    text: 'Learning to say no, kindly and with a reason, is a senior skill. Protecting focus is how good work actually gets finished.',
+    author: 'Engineering practice',
+    source: 'Common career advice',
+    tags: ['focus', 'career'],
+  },
+  {
+    id: 'community-disagree-commit',
+    text: 'Disagree and commit. Argue your case fully, and once the team decides, get behind the decision and make it work.',
+    author: 'Engineering and leadership practice',
+    source: 'Widely used team principle',
+    tags: ['teamwork', 'decision-making'],
+  },
+  {
+    id: 'community-blameless',
+    text: 'Run blameless postmortems. When people are not afraid of punishment they tell the truth, and the truth is how systems get safer.',
+    author: 'Site Reliability Engineering practice',
+    source: 'Google SRE book',
+    tags: ['operations', 'culture'],
+  },
+  {
+    id: 'community-tests-confidence',
+    text: 'Write tests for the confidence to change things, not for a coverage number. A test that lets you refactor without fear has paid for itself.',
+    author: 'Engineering practice',
+    source: 'Common testing advice',
+    tags: ['testing', 'mindset'],
+  },
+  {
+    id: 'community-name-before-build',
+    text: 'If you cannot name it clearly, you may not understand it yet. A fuzzy name is often a sign the design needs another pass.',
+    author: 'Engineering practice',
+    source: 'Common design advice',
+    tags: ['naming', 'design'],
+  },
+  {
+    id: 'community-ship-learn',
+    text: 'Ship something small and real, then learn from how people use it. Feedback from production beats months of guessing in a planning doc.',
+    author: 'Engineering practice',
+    source: 'Common product engineering advice',
+    tags: ['shipping', 'iteration'],
+  },
+  {
+    id: 'community-context-over-control',
+    text: 'Give context, not commands. People do their best work when they understand the why and get to choose the how.',
+    author: 'Engineering leadership practice',
+    source: 'Common leadership advice',
+    tags: ['leadership', 'communication'],
+  },
+  {
+    id: 'community-future-self',
+    text: 'Write code for your future self who has forgotten everything. Clear names and small functions are a gift you give that tired person.',
+    author: 'Engineering practice',
+    source: 'Common readability advice',
+    tags: ['readability', 'clarity'],
+  },
+  {
+    id: 'community-one-source-truth',
+    text: 'Keep one source of truth for each fact in your system. Copies drift apart, and reconciling them later is its own painful project.',
+    author: 'Engineering practice',
+    source: 'Common data modeling advice',
+    tags: ['data', 'design'],
+  },
+  {
+    id: 'community-fail-loud',
+    text: 'Fail loudly and early. A clear crash near the cause is far kinder than silent wrong behavior discovered three systems downstream.',
+    author: 'Engineering practice',
+    source: 'Common reliability advice',
+    tags: ['reliability', 'debugging'],
+  },
+  {
+    id: 'community-timebox',
+    text: 'Timebox the rabbit hole. If you are stuck for an hour, write down what you tried and ask for help. Stubbornness is not a debugging strategy.',
+    author: 'Engineering practice',
+    source: 'Common debugging advice',
+    tags: ['debugging', 'teamwork'],
+  },
+  {
+    id: 'community-read-widely',
+    text: 'Read code from people better than you. Studying a well built codebase teaches taste faster than any tutorial.',
+    author: 'Engineering practice',
+    source: 'Common learning advice',
+    tags: ['learning', 'growth'],
+  },
+  {
+    id: 'community-explain-simple',
+    text: 'If you can explain it simply, you understand it. Practice describing your work so a new teammate could follow along.',
+    author: 'Engineering practice',
+    source: 'Common communication advice',
+    tags: ['communication', 'clarity'],
+  },
+  {
+    id: 'community-deadlines-honest',
+    text: 'Be honest about estimates, including the uncertainty. A range with a reason builds more trust than a confident number you will miss.',
+    author: 'Engineering practice',
+    source: 'Common estimation advice',
+    tags: ['estimation', 'communication'],
+  },
+  {
+    id: 'community-rest',
+    text: 'Rest is part of the work. Tired brains write the bugs that well rested brains spend a day chasing.',
+    author: 'Engineering practice',
+    source: 'Common advice on sustainable pace',
+    tags: ['wellbeing', 'sustainability'],
+  },
+  {
+    id: 'community-curiosity',
+    text: 'Stay curious about the layers below you. Knowing a little about how the database, network or browser really works turns mysteries into problems you can solve.',
+    author: 'Engineering practice',
+    source: 'Common growth advice',
+    tags: ['learning', 'fundamentals'],
+  },
+  {
+    id: 'community-feedback-gift',
+    text: 'Treat feedback as a gift, even when it stings. The colleague who tells you the hard thing kindly is investing in you.',
+    author: 'Engineering practice',
+    source: 'Common career advice',
+    tags: ['growth', 'feedback'],
+  },
+  {
+    id: 'community-prototype-throwaway',
+    text: 'Build a throwaway prototype to learn, then throw it away on purpose. Prototypes answer questions, they do not have to become the product.',
+    author: 'Engineering practice',
+    source: 'Common design advice',
+    tags: ['design', 'iteration'],
+  },
+  {
+    id: 'community-config-over-fork',
+    text: 'Reach for the simplest tool that fits, not the most powerful one. Most problems do not need the framework you saw in a conference talk.',
+    author: 'Engineering practice',
+    source: 'Common pragmatism advice',
+    tags: ['pragmatism', 'simplicity'],
+  },
+  {
+    id: 'community-document-while-fresh',
+    text: 'Write the docs while the work is fresh. The knowledge in your head right now will be gone by next month, and so will the urge to write it down.',
+    author: 'Engineering practice',
+    source: 'Common documentation advice',
+    tags: ['documentation', 'habits'],
+  },
+  {
+    id: 'community-listen-users',
+    text: 'Sit with the people who use what you build. Ten minutes watching a real user struggle teaches more than ten pages of requirements.',
+    author: 'Engineering practice',
+    source: 'Common product advice',
+    tags: ['users', 'product'],
+  },
+  {
+    id: 'community-celebrate-team',
+    text: 'Celebrate the team in public and give the feedback in private. How you share credit and criticism shapes whether people trust you.',
+    author: 'Engineering leadership practice',
+    source: 'Common leadership advice',
+    tags: ['leadership', 'teamwork'],
+  },
+  {
+    id: 'community-version-everything',
+    text: 'Version and back up anything you would hate to lose. The cheapest insurance in software is a commit you can roll back to.',
+    author: 'Engineering practice',
+    source: 'Common version control advice',
+    tags: ['safety', 'habits'],
+  },
+  {
+    id: 'community-error-handling',
+    text: 'Handle errors where you have enough context to do something useful. Catching an error just to log and rethrow it usually adds noise, not safety.',
+    author: 'Engineering practice',
+    source: 'Common error handling advice',
+    tags: ['reliability', 'design'],
+  },
+  {
+    id: 'community-learn-in-public',
+    text: 'Learn in public. Sharing notes, blog posts or small talks forces you to understand things deeply and helps the people behind you.',
+    author: 'Engineering practice',
+    source: 'Learning in public movement',
+    tags: ['learning', 'growth'],
+  },
+  {
+    id: 'community-protect-focus',
+    text: 'Guard a few hours of deep focus each day. Real engineering happens in long uninterrupted stretches, not between back to back meetings.',
+    author: 'Engineering practice',
+    source: 'Common productivity advice',
+    tags: ['focus', 'productivity'],
+  },
+  {
+    id: 'community-question-requirements',
+    text: 'Question the requirement before you build it. The best code you can write is the feature you talked someone out of needing.',
+    author: 'Engineering practice',
+    source: 'Common product engineering advice',
+    tags: ['product', 'simplicity'],
+  },
+  {
+    id: 'community-own-mistakes',
+    text: 'Own your mistakes quickly and out loud. People remember how you handled the outage far longer than they remember the outage.',
+    author: 'Engineering practice',
+    source: 'Common career advice',
+    tags: ['ownership', 'trust'],
+  },
+  {
+    id: 'community-consistency',
+    text: 'Be consistent with the codebase you are in, even when it is not your favorite style. Consistency lowers the cost of reading for everyone.',
+    author: 'Engineering practice',
+    source: 'Common code style advice',
+    tags: ['consistency', 'readability'],
+  },
+  {
+    id: 'community-mentor',
+    text: 'Mentor someone earlier than you feel ready. Teaching exposes the gaps in your own understanding and pays the help you got forward.',
+    author: 'Engineering practice',
+    source: 'Common growth advice',
+    tags: ['mentorship', 'growth'],
+  },
+  {
+    id: 'community-default-trust',
+    text: 'Assume good intent from your teammates. Most friction is a missing piece of context, not a bad person on the other side.',
+    author: 'Engineering practice',
+    source: 'Common teamwork advice',
+    tags: ['teamwork', 'trust'],
+  },
+  {
+    id: 'community-finish-before-new',
+    text: 'Finish what is in flight before starting something new. A pile of half done work helps no one and quietly drains the team.',
+    author: 'Engineering practice',
+    source: 'Common execution advice',
+    tags: ['execution', 'focus'],
+  },
+
+  // --- Further verified items sourced for this project ---
+  {
+    id: 'hoare-reliability-simplicity',
+    text: 'The price of reliability is the pursuit of the utmost simplicity. A system has to be simple before you can really trust it.',
+    author: 'Tony Hoare',
+    source: '1980 Turing Award Lecture, The Emperor’s Old Clothes',
+    tags: ['simplicity', 'reliability'],
+  },
+  {
+    id: 'ousterhout-incremental-complexity',
+    text: 'Complexity is incremental, so sweat the small stuff. It rarely comes from one bad decision. It piles up from many small ones nobody pushed back on.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['complexity', 'habits'],
+  },
+  {
+    id: 'ousterhout-define-errors-out',
+    text: 'Try to define errors out of existence. Often the cleanest fix is to design the interface so the bad case simply cannot happen, instead of handling it everywhere.',
+    author: 'John Ousterhout',
+    source: 'A Philosophy of Software Design',
+    tags: ['design', 'reliability'],
+  },
+  {
+    id: 'tef-easy-to-delete',
+    text: 'Write code that is easy to delete, not easy to extend. Every line is something you will maintain, so favor cheap to throw away over engineered for a future that may never come.',
+    author: 'Tef (Thomas Figg)',
+    source: 'Write code that is easy to delete, programming is terrible',
+    tags: ['maintainability', 'simplicity'],
+  },
+  {
+    id: 'prag-select-isnt-broken',
+    text: 'Select is not broken. When something breaks, assume the bug is in your own code, not in the compiler, the operating system or a well used library. It almost always is.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['debugging', 'humility'],
+  },
+  {
+    id: 'prag-tracer-bullets',
+    text: 'Use tracer bullets. Build a thin version that runs end to end first, then aim with it. Real feedback from something working beats specifying everything up front.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['delivery', 'iteration'],
+  },
+  {
+    id: 'prag-orthogonality',
+    text: 'Keep unrelated things independent. When changing one part of the system forces changes in something unrelated, the design is tangled and every change gets riskier.',
+    author: 'Andy Hunt and Dave Thomas',
+    source: 'The Pragmatic Programmer',
+    tags: ['design', 'decoupling'],
+  },
+  {
+    id: 'evans-notice-confusion',
+    text: 'Being senior is less about knowing everything and more about quickly noticing when you do not know something, then going to learn it.',
+    author: 'Julia Evans',
+    source: 'Get better at programming by learning how things work, jvns.ca',
+    tags: ['learning', 'seniority'],
+  },
+  {
+    id: 'evans-tiny-experiment',
+    text: 'Turn confusion into a tiny experiment. When you are unsure how something works, write a small throwaway program to find out. It does not have to be pretty, it just has to teach you something.',
+    author: 'Julia Evans',
+    source: 'Rules of programming experiments, jvns.ca',
+    tags: ['learning', 'debugging'],
+  },
+  {
+    id: 'abramov-no-silent-rewrite',
+    text: 'Do not silently rewrite a teammate’s code, even if you are sure yours is cleaner. Talk to them first. Doing it quietly costs you more in trust than you gain in tidiness.',
+    author: 'Dan Abramov',
+    source: 'Goodbye, Clean Code, overreacted.io',
+    tags: ['teamwork', 'code-review'],
+  },
+  {
+    id: 'majors-watch-rollout',
+    text: 'Watch your change roll out right after you merge it. Most problems can be caught in that moment, before a single user ever notices.',
+    author: 'Charity Majors',
+    source: 'Deploys: It’s Not Actually About Fridays, charity.wtf',
+    tags: ['operations', 'deployment'],
+  },
+  {
+    id: 'larson-work-on-what-matters',
+    text: 'Stop snacking on easy, low impact work just because it feels productive. Spend your limited energy on the work that actually moves things and grows you.',
+    author: 'Will Larson',
+    source: 'Work on what matters, lethain.com',
+    tags: ['career', 'focus'],
+  },
+  {
+    id: 'orosz-overcommunicate',
+    text: 'Hard work alone will not get you promoted. Deliver solid work, then make sure the people who decide actually know what you accomplished.',
+    author: 'Gergely Orosz',
+    source: 'The Software Engineer’s Guidebook',
+    tags: ['career', 'communication'],
+  },
+  {
+    id: 'fournier-delegation',
+    text: 'Delegation is not abdication. When you hand off a piece of work you are still on the hook to stay involved enough for it to succeed.',
+    author: 'Camille Fournier',
+    source: 'The Manager’s Path',
+    tags: ['leadership', 'ownership'],
+  },
+  {
+    id: 'hightower-automation-understanding',
+    text: 'Automation is the serialization of understanding. You can only automate what you truly understand, so understand first and automate second.',
+    author: 'Kelsey Hightower',
+    source: 'The Changelog, Ship It! interview',
+    tags: ['automation', 'learning'],
+  },
+  {
+    id: 'addy-dont-outsource-learning',
+    text: 'Do not outsource your learning to AI. Letting a tool solve a problem without engaging quietly erodes the very skill you are paid for. The bug gets fixed, but your understanding does not move.',
+    author: 'Addy Osmani',
+    source: 'Don’t Outsource the Learning',
+    tags: ['learning', 'growth'],
+  },
+];
+
+export default advice;
